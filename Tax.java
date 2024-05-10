@@ -6,7 +6,7 @@ public class Tax{
       int income=sc.nextInt();
       int tax;
       if(income<500000){
-         tax=0;
+         tax=0; 
       }
       else if(income>=500000 && income<1000000){
          tax=(int)(income*(0.2));
