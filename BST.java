@@ -121,6 +121,29 @@ public class BST {
         }
     }
 
+    public static Node mirror( Node root) {
+        if(root == null) {
+            return null;
+        }
+        
+        Node left = mirror(root.left);
+        Node right = mirror(root.right);
+
+        root.left = right;
+        root.right = left;
+
+        return root;
+
+    }
+
+    public static void printPreOrder(Node root) {
+        if(root == null) {
+            return;
+        }
+        System.out.print(root.data + " ");
+        printPreOrder(root.left);
+        printPreOrder(root.right);
+    }
     public static void main(String[] args) {
         int[] values = { 8, 5, 3, 6, 10, 11, 14 };
         Node root = null;
@@ -140,6 +163,10 @@ public class BST {
 
         // printRoot2Leaf(root, new ArrayList<>());
 
-        printInRange(root, 5, 12);
+        // printInRange(root, 5, 12);
+
+        root = mirror(root);
+
+        printPreOrder(root);
     }
 }
